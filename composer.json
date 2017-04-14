@@ -1,5 +1,5 @@
 {
-    "name": "sylwesterkowal/AssignProduct",
+    "name": "sylwesterkowal/assign-product",
     "description": "AssignProduct plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
