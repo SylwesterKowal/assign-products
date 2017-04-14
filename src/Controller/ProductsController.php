@@ -1,7 +1,10 @@
 <?php
+
 namespace AssignProduct\Controller;
 
 use AssignProduct\Controller\AppController;
+use Cake\Event\Event;
+use Search\Manager;
 
 /**
  * Products Controller
@@ -10,6 +13,28 @@ use AssignProduct\Controller\AppController;
  */
 class ProductsController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Search.Prg', [
+            'actions' => ['index']
+        ]);
+
+        $this->loadComponent('Paginator');
+        $this->loadComponent('Product.Imageproduct');
+        $this->loadComponent('Product.ProductParameters');
+        $this->loadComponent('Product.ProdCategories');
+        $this->loadComponent('Product.Firms');
+    }
+
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        ProductInIt();
+    }
 
     /**
      * Index method
