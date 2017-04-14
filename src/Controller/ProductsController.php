@@ -16,7 +16,7 @@ class ProductsController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    public function index($magento_user_id)
     {
         $products = $this->paginate($this->Products);
 
